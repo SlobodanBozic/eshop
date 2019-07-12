@@ -15,13 +15,13 @@
   <div class="row">
     <div class="col-xs-4 col-md-4 item-photo">
 
-        <img class="card-img img" src="/storage/cover_images/{{$product->cover_image}}">
+        <img class="card-img img" src="/storage/product_images/{{$product->product_image}}">
     </div>
 
                    <div class="col-xs-8  col-md-8" style="border:0px solid gray">
-                       <!-- Datos del vendedor y titulo del producto -->
+
                        <h3>{{ $product->title}}</h3>
-                       <h5 ">Own by <a href="#">{{$users->name}}</a> · <small>({{ $total }} has active products)</small></h5>
+                       <h5>Own by <a href="#">{{$users->name}}</a> · <small>({{ $total }} has active products)</small></h5>
 
                        <!-- Prices -->
                        <div id="Prices-modal">
@@ -105,31 +105,7 @@
                        </div>
                    </div>
 </div>
-    {{-- <div class="col-md-6">
-    <img class="card-img img" src="/storage/cover_images/{{$product->cover_image}}">
-</div>
-<div class="col-md-6">
-    <div class="form-group">
-      <p class="list-price text-danger font-Lobster-Regular">Price list: <s>{{ $product->list_price}}</s></p>
-    </div>
 
-    <div class="form-group">
-      <p>Price: {{ $product->price}}</p>
-    </div>
-
-    <div class="form-group">
-
-        <label class="font-Lobster-Regular" for="quantity">Quantity: </label>
-        <input type="number" class="form-control" id="quantity" name="quantity" min="0">
-    </div>
-
-    <div class="form-group">
-      <label class="font-Lobster-Regular" for="size">Size:</label>
-      <select name="size" id="size" class="browser-default custom-select">
-        <option value='' selected>Open this select menu to select 'Size'</option>
-      </select>
-    </div>
-</div> --}}
 </div>
 
 </div>

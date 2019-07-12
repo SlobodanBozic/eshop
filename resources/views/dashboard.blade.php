@@ -33,7 +33,7 @@
       <div class="col-md-2 col-sm-2"></div>
 
       <div class="col-md-4 col-sm-4">
-        <img style="width:200px;" src="/storage/cover_images/{{$product->cover_image}}">
+        <img style="width:200px;" src="/storage/product_images/{{$product->product_image}}">
       </div>
 
         <div class="col-md-4 col-sm-4">

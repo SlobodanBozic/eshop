@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-        {{ Form::file('cover_image')}}
+        {{ Form::file('product_image')}}
         </div>
 
 

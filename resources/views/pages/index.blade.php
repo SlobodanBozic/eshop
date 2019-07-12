@@ -16,7 +16,7 @@
       						<div class="col-sm-2">
       							<div class="thumb-wrapper">
       								<div class="img-box">
-      									<img src="/storage/cover_images/{{$product->cover_image}}" class="img-responsive img-fluid" alt="">
+      									<img src="/storage/product_images/{{$product->product_image}}" class="img-responsive img-fluid" alt="">
       								</div>
       								<div class="thumb-content">
       									<h4>{{$product->title}}</h4>
@@ -30,7 +30,7 @@
       											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
       										</ul>
       									</div>
-      									<a href="#" class="btn btn-primary">Add to Cart</a>
+      									<button type="button" class="btn btn-primary add2cart btn-product" data-url="{{url('modal-view'). '?uid=' . $product->id }}">Add to Cart</button>
       								</div>
       							</div>
       						</div>
@@ -47,7 +47,7 @@
                   <div class="col-sm-2">
                     <div class="thumb-wrapper">
                       <div class="img-box">
-                        <img src="/storage/cover_images/{{$product->cover_image}}" class="img-responsive img-fluid" alt="">
+                        <img src="/storage/product_images/{{$product->product_image}}" class="img-responsive img-fluid" alt="">
                       </div>
                       <div class="thumb-content">
                         <h4>Apple iPad</h4>
@@ -175,7 +175,7 @@
 
                           <div class="col-md-3">
                             <div class="card text-center myHover wrapper-articals">
-                              <img class="card-img img" src="/storage/cover_images/{{$product->cover_image}}">
+                              <img class="card-img img" src="/storage/product_images/{{$product->product_image}}">
                                 <div class="card-body">
                                   <h4 class="modal-title">{{$product->title}}</h4>
                                   <p class="item-price"><strike>${{$product->list_price}}</strike> <span>${{$product->price}}</span></p>

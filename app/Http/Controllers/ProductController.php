@@ -71,23 +71,23 @@ class ProductController extends Controller
         'description' => 'required',
         'list_price' => 'required',
         'price' => 'required',
-        'cover_image' => 'image|nullable|max:1999'
+        'product_image' => 'image|nullable|max:1999'
       ]);
 
       // Handle File Uplaoad
-      if($request->hasFile('cover_image')){
+      if($request->hasFile('product_image')){
 
         // Get filename with the extension
-        $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+        $fileNameWithExt = $request->file('product_image')->getClientOriginalName();
 
         // Get just fileName
         $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
         // Get just extension
-        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        $extension = $request->file('product_image')->getClientOriginalExtension();
         //FileName to store
         $fileNameToStore = $fileName.'_'.time().'.'.$extension;
         // Upload Image
-        $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
       }else{
         $fileNameToStore = 'noImage.jpg';
       }
@@ -98,7 +98,7 @@ class ProductController extends Controller
       $product->description = $request->input('description');
       $product->list_price = $request->input('list_price');
       $product->price = $request->input('price');
-      $product->cover_image = $fileNameToStore;
+      $product->product_image = $fileNameToStore;
       $product->user_id = auth()->user()->id;
       $product->save();
 
@@ -152,18 +152,18 @@ class ProductController extends Controller
       ]);
 
       // Handle File Uplaoad
-      if($request->hasFile('cover_image')){
+      if($request->hasFile('product_image')){
 
         // Get filename with the extension
-        $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+        $fileNameWithExt = $request->file('product_image')->getClientOriginalName();
         // Get just fileName
         $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
         // Get just extension
-        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        $extension = $request->file('product_image')->getClientOriginalExtension();
         //FileName to store
         $fileNameToStore = $fileName.'_'.time().'.'.$extension;
         // Upload Image
-        $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
       }
 
       // Create Product
@@ -173,8 +173,8 @@ class ProductController extends Controller
       $product->list_price = $request->input('list_price');
       $product->price = $request->input('list_price');
 
-        if($request->hasFile('cover_image')){
-          $product->cover_image = $fileNameToStore;
+        if($request->hasFile('product_image')){
+          $product->product_image;
         }
 
       $product->save();
@@ -195,9 +195,9 @@ class ProductController extends Controller
         if(auth()->user()->id !== $product->user_id){
           return redirect('/dashboard')->with('error', 'Unauthorized Page');
         }
-        if($product->cover_image != 'noImage.jpg'){
+        if($product->product_image != 'noImage.jpg'){
           // Delete Image
-          Storage::delete('public/cover_images/'.$product->cover_image);
+          Storage::delete('public/product_images/'.$product->product_image);
         }
         $product->delete();
         return redirect('dashboard')->with('success','Product Removed');

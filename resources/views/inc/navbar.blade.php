@@ -21,12 +21,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="/services"><i class="fa fa-folder-open"></i> Servises</a>
               </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="/products/create"><i class="fa fa-folder-open"></i> Create Product</a>
-              </li>
-
-
+              
             </ul>
 
             <!-- Right Side Of Navbar -->

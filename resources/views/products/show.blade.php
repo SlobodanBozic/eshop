@@ -7,7 +7,7 @@
 
 <h2>{{ $product->title}}</h2>
 <hr>
-<img style="width:25%;margin-bottom:1%;" src="/storage/cover_images/{{$product->cover_image}}">
+<img style="width:25%;margin-bottom:1%;" src="/storage/product_images/{{$product->product_image}}">
 <br><br>
 <div>
   {!!$product->description!!}
@@ -21,7 +21,7 @@
 
 {{-- Delete post --}}
 {!! Form::open([
-  'action'=> ['PostController@destroy', $product->id],
+  'action'=> ['ProductController@destroy', $product->id],
   'method' => 'POST',
   'class' => 'pull-right'
 ]) !!}
