@@ -1,7 +1,8 @@
 
 @extends('layouts.home')
 
-@section('jumbotron_header')
+@section('hot_products')
+
   <div class="container-fluid">
       <div class="row">
       		<div class="col-md-12">
@@ -13,14 +14,14 @@
       					<div class="row">
                   @if(count($products) > 0)
                   @foreach($products as $product)
-      						<div class="col-sm-2">
+      						<div class="col-md-4 col-lg-3 col-xl-2">
       							<div class="thumb-wrapper">
       								<div class="img-box">
       									<img src="/storage/product_images/{{$product->product_image}}" class="img-responsive img-fluid" alt="">
       								</div>
       								<div class="thumb-content">
       									<h4>{{$product->title}}</h4>
-      									<p class="item-price"><strike>${{$product->list_price}}</strike> <span>${{$product->price}}</span></p>
+      									<p class="item-price"><strike id="list-price">${{$product->list_price}}</strike> <span>${{$product->price}}</span></p>
       									<div class="star-rating">
       										<ul class="list-inline">
       											<li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -148,33 +149,35 @@
                 </div>
               </div>
             </article>
-            <div class="card-body">
-              <input type="submit" value="Search" class="btn btn-xs btn-primary">
-            </div>
+
             <div>
           </div>
+
+            <input type="submit" value="Search" class="btn btn-xs btn-primary">
     </form>
+
+
   </aside>
 </div>
-
 @endsection
 
 
 @section('content')
   <div class="modal fade" id="loadModal" tabindex="-1"></div>
 
-  <div class='col-md-10'>
-    <!-- Start Portfolio Section -->
-    <div class="col-md-9 wrapper-middle-sector">
+  {{-- <div class='col-md-10'> --}}
+
+    <div class="col-md-10 wrapper-middle-sector">
 
       	<h2>All <b>Items</b></h2>
+
     <div class="row">
 
             @if(count($products) > 0)
             @foreach($products as $product)
 
-                          <div class="col-md-3">
-                            <div class="card text-center myHover wrapper-articals">
+                          <div class="col-md-4 col-lg-3 col-xl-2">
+                            <div id="products" class="card text-center myHover wrapper-articals">
                               <img class="card-img img" src="/storage/product_images/{{$product->product_image}}">
                                 <div class="card-body">
                                   <h4 class="modal-title">{{$product->title}}</h4>
@@ -199,7 +202,7 @@
                     {!! $products->render() !!}
                   </div>
                 </div>
-              </div>
+              {{-- </div> --}}
           @endsection
 
 
@@ -220,16 +223,13 @@
             </form>
             <ul class="newsletter-follow">
               <li>
-                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
               </li>
               <li>
-                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
               </li>
               <li>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
               </li>
             </ul>
           </div>

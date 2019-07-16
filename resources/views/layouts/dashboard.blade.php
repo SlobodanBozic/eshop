@@ -12,7 +12,7 @@
     <!-- Google  -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
-    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"> --}}
+
 
     <!-- For navbar -->
     <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.7.5.min.css">
@@ -26,7 +26,7 @@
 
 
   @include('inc.messages')
-  @include('inc.dashboard_layout')
+  @include('inc.dashboard_navigation')
   <!-- sidebar-wrapper  -->
 @yield('content')
   <!-- page-content" -->

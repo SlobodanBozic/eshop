@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->decimal('list_price', 10, 2);
             $table->decimal('price', 10, 2);
             $table->string('cover_image');
+            $table->string('color');
             $table->integer('user_id');
             $table->timestamps();
         });

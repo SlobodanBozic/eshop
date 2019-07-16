@@ -17,15 +17,15 @@
 
 >(*Browser* best for Chrome and Firefox)
 
-
-![Edit](images/front-page.png)
-
 ## Description:
-* It is a very simple website *Car Repair Shop*
+* It is a very simple website *eShop*
 * This website is created with HTML5, CSS3, Bootstrap 4, JavaScript and JQuery.
 * CSS flexbox layout
 * implement good-looking responsive layouts
 
+## Login data:
+* *Username:* admin
+* *Password:* adminpass
 
 ## Bugs and Issues
 Have a bug or an issue with this theme? [Open a new issue](https://github.com/SlobodanBozic/AutoServisBozic/issues) here on GitHub.

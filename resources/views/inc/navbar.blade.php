@@ -1,27 +1,35 @@
-<nav class="navbar navbar-icon-top navbar-expand-md navbar-dark" style="background-color:#15161D">
-    <div class="container-fluid">
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark" style="background-color:#15161D">
+
+    {{-- <div class="container-fluid"> --}}
+
         <a class="navbar-brand" href="{{ url('/') }}">
               <img style="height:50px;" class="rounded-circle z-depth-0" alt="avatar image" id="logo-image" src="{{ asset('/storage/eShop_images/logo-eShop.png') }}">
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <!-- Left Side Of Navbar -->
+
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+
+
+              <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
+
                 <a class="nav-link" href="/"> <i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
               </li>
 
-              <li class="nav-item">
+              <li class="nav-item {{ (request()->is('/about')) ? 'active' : '' }}">
                 <a class="nav-link" href="/about"><i class="fa fa-folder-open"></i> About</a>
               </li>
 
-              <li class="nav-item">
+              <li class="nav-item {{ (request()->is('/services')) ? 'active' : '' }}">
                 <a class="nav-link" href="/services"><i class="fa fa-folder-open"></i> Servises</a>
               </li>
-              
+
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -33,8 +41,7 @@
 
 
                           <li class="nav-item">
-
-                        <div class='row'>
+                            <div class="row">
                               <form class="form-inline my-2 my-lg-0 mr-2" action="{{ route('login') }}" method="post">
                                 @csrf
 
@@ -52,33 +59,28 @@
                                   </span>
                               @endif
 
-                                <input class="nav-button btn btn-outline-primary" type="submit" value="Login"></input>
-                            </form>
-                      </div>
+                              <input class="nav-button btn btn-outline-primary" type="submit" value="Login"></input>
+                                <a class="nav-button btn btn-outline-success" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </div>
 
-                        <div class='row'>{{-- Recover password --}}
-                            @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
-                      </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-button btn btn-outline-success" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
+                            <div class="row">
+                                @if (Route::has('password.request'))
+                                    <a href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+                          </form>
+                          </li>
+
                     @endif
                 @else
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <i class="fa fa-envelope-o">
-                        <span class="badge badge-success">1</span>
-                      </i>
-                    Message
-                    </a>
-                  </li>
-                    <li class="nav-item dropdown">
 
+                  <li class="nav-item">
+                  <a class="nav-link mt-3" href="#"> <i class="fa fa-envelope"> <span class="badge badge-success">1</span> </i> Message </a>
+                  </li>
+
+                    <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <img style="width:60px;" src="/storage/avatars/{{ Auth::user()->avatar }}" class="rounded-circle z-depth-0" alt="avatar image">{{ Auth::user()->name }} <span class="caret"></span>
                         </a>
@@ -98,8 +100,9 @@
                             </form>
                         </div>
                     </li>
+
                 @endguest
             </ul>
         </div>
-    </div>
+    {{-- </div> --}}
 </nav>

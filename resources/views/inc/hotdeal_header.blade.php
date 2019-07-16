@@ -1,9 +1,8 @@
 <div id="header-wrapper">
   <!-- HOT DEAL SECTION -->
   <div id="hot-deal">
-    <!-- container -->
     <div class="container">
-      <!-- row -->
+
       <div class="row">
         <div class="col-md-12">
           <div class="hot-deal mt-1 mb-1">
@@ -41,9 +40,7 @@
           </div>
         </div>
       </div>
-      <!-- /row -->
     </div>
-    <!-- /container -->
   </div>
   <!-- /HOT DEAL SECTION -->
 </div>

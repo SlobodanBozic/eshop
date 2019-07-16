@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 @section('content')
   <h1>{{$title}}</h1>
   <p>{{$content}}</p>
@@ -9,6 +9,6 @@
       <li class='list-group-item'>{{$service}}</li>
     @endforeach
     </ul>
-    
+
   @endif
 @endsection

@@ -12,7 +12,6 @@
     <!-- Google  -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -21,14 +20,14 @@
 
   @include('inc.navbar')
   @include('inc.hotdeal_header')
-  @yield('jumbotron_header')
+  @yield('hot_products')
   @include('inc.messages')
 
-  <div class="container-fluid mb-4">
-    <div class='row'>
+<div class="container-fluid mb-4">
+  <div class='row'>
       @yield('sidebar')
       @yield('content')
-</div>
+    </div>
 </div>
 
   @yield('newsletter')
@@ -36,17 +35,12 @@
 
     <!-- Scripts -->
     @yield('editor-scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"
-            integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"
-            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-            crossorigin="anonymous"></script>
 
-
-     <script src="{{ asset('js/app.js') }}" defer></script>
-     <script src="{{ asset('js/main.js') }}"></script>
+    <div id='app'></div>
+     <script src="{{ asset('js/app.js') }}"></script>
      <script src="{{ asset('js/countDownTimer.js') }}"></script>
-     <div id='app'></div>
+     <script src="{{ asset('js/main.js') }}"></script>
+
+
 </body>
 </html>
