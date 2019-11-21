@@ -20,9 +20,13 @@
 * CSS flexbox layout
 * implement good-looking responsive layouts
 
+## User Login data:
+* *Username:* testuser@testmail.com
+* *Password:* 123456
+
 ## Login data:
 * *Username:* admin
-* *Password:* adminpass
+* *Password:* 123456
 
 ## Bugs and Issues
 Have a bug or an issue with this theme? [Open a new issue](https://github.com/SlobodanBozic/AutoServisBozic/issues) here on GitHub.
