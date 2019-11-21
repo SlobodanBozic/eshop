@@ -1,10 +1,6 @@
-
-
-
-
 # [SlobodanBozic](https://github.com/SlobodanBozic)
 
-[Laravel FREE E-Shop Software](http://autoservisbozic.com/) 1.0v is a eShop web application made with [Framework Used: Laravel 5.8](https://laravel.com/docs/5.8/) Framework.
+[E-Shop Software is made in Laravel](http://slobodanbozic.com/eShop-public/) 2.0v is a eShop web application made with [Framework Used: Laravel 6.x](https://laravel.com/docs/6.x/installation) Framework.
 >(This project is currently *under development.*)
 
 ## Getting Started

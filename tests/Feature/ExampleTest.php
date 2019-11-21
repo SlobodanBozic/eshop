@@ -14,8 +14,10 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $this->artisan('consoletest')
+         ->expectsQuestion('What is your name?', 'Taylor Otwell')
+         ->expectsQuestion('Which language do you program in?', 'PHP')
+         ->expectsOutput('Your name is Taylor Otwell and you program in PHP.')
+         ->assertExitCode(0);
     }
 }
