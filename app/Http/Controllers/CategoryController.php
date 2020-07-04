@@ -46,7 +46,7 @@ class CategoryController extends Controller
     		return redirect()->back()->with('flash_message_success', 'Category has been added successfully');
     	}
 
-        $levels = Category::where(['parent_id'=>0])->get();
+      $levels = Category::where(['parent_id'=>0])->get();
     	return view('admin.categories.add_category')->with(compact('levels'));
     }
 

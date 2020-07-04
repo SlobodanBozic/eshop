@@ -19,7 +19,7 @@ class UsersController extends Controller
 
     public function userLoginRegister(){
 
-        $meta_title = "User Login/Register - Ecom Website";
+        $meta_title = "User Login/Register - eShop Website";
         return view('users.login_register')->with(compact('meta_title'));
     }
 
@@ -47,7 +47,9 @@ class UsersController extends Controller
     }
 
     public function register(Request $request){
+
     	if($request->isMethod('post')){
+
     		$data = $request->all();
             /*echo "<pre>"; print_r($data); die;*/
     		// Check if User already exists
@@ -65,18 +67,18 @@ class UsersController extends Controller
                 $user->updated_at = date("Y-m-d H:i:s");
                 $user->save();
 
-                /*// Send Register Email
+                // Send Register Email
                 $email = $data['email'];
                 $messageData = ['email'=>$data['email'],'name'=>$data['name']];
                 Mail::send('emails.register',$messageData,function($message) use($email){
                     $message->to($email)->subject('Registration with E-com Website');
-                });*/
+                });
 
                 // Send Confirmation Email
                 $email = $data['email'];
                 $messageData = ['email'=>$data['email'],'name'=>$data['name'],'code'=>base64_encode($data['email'])];
                 Mail::send('emails.confirmation',$messageData,function($message) use($email){
-                    $message->to($email)->subject('Confirm your E-com Account');
+                    $message->to($email)->subject('Confirm your eShop Account');
                 });
 
                 return redirect()->back()->with('flash_message_success','Please confirm your email to activate your account!');
@@ -92,7 +94,9 @@ class UsersController extends Controller
                     return redirect('/cart');
                 }
     		}
+
     	}
+
     }
 
     public function forgotPassword(Request $request){

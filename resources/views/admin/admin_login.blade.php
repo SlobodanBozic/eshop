@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-        <title>E-Shop Admin</title><meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="{{ asset('css/backend_css/bootstrap.min.css') }}" />
-		<link rel="stylesheet" href="{{ asset('css/backend_css/bootstrap-responsive.min.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/backend_css/matrix-login.css') }}" />
-        <link href="{{ asset('fonts/backend_fonts/css/font-awesome.css') }}" rel="stylesheet" />
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-
+    <head>
+            <title>E-Shop Admin</title><meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    		<link rel="stylesheet" href="{{ asset('css/backend_css/bootstrap.min.css') }}" />
+    		<link rel="stylesheet" href="{{ asset('css/backend_css/bootstrap-responsive.min.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/backend_css/matrix-login.css') }}" />
+            <link href="{{ asset('fonts/backend_fonts/css/font-awesome.css') }}" rel="stylesheet" />
+    		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     </head>
+
     <body>
+
         <div id="loginbox">
         @if(Session::has('flash_message_error'))
             <div class="alert alert-error alert-block">
@@ -26,7 +27,8 @@
                     <strong>{!! session('flash_message_success') !!}</strong>
             </div>
         @endif
-            <form class="form-vertical" role="form" method="POST" action="{{ url('admin') }}">{{ csrf_field() }}
+
+        <form class="form-vertical" role="form" method="POST" action="{{ url('admin') }}">{{ csrf_field() }}
 				 <div class="control-group normal_text"> <h3>E-Shop Admin</h3></div>
                 <div class="control-group">
                     <div class="controls">
@@ -47,8 +49,9 @@
                     <span class="pull-right"><input type="submit" class="btn btn-success" value="Login" /></span>
                 </div>
             </form>
+
             <form id="recoverform" action="#" class="form-vertical">
-				<p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
+				      <p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
 
                     <div class="controls">
                         <div class="main_input_box">
@@ -61,6 +64,7 @@
                     <span class="pull-right"><a class="btn btn-info"/>Reecover</a></span>
                 </div>
             </form>
+
         </div>
 
         <script src="{{ asset('js/backend_js/jquery.min.js') }}"></script>

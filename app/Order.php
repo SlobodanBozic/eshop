@@ -17,6 +17,6 @@ class Order extends Model
 
     public static function getCountryCode($country){
     	$getCountryCode = Country::where('country_name',$country)->first();
-    	return $getCountryCode;	
+    	return $getCountryCode;
     }
 }

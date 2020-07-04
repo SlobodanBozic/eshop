@@ -14,7 +14,7 @@ class BannersController extends Controller
     		$data = $request->all();
     		//echo "<pre>"; print_r($data); die;
 
-    		$banner = new Banner;
+    	$banner = new Banner;
 			$banner->title = $data['title'];
 			$banner->link = $data['link'];
 

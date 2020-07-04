@@ -1,37 +1,35 @@
+
+
+$(document).ready(function(){
+
 /*price range*/
+  $('#sl2').slider();
 
- $('#sl2').slider();
-
-	var RGBChange = function() {
-	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-	};
-
-/*scroll to top*/
-
-$(document).ready(function(){
-	$(function () {
-		$.scrollUp({
-	        scrollName: 'scrollUp', // Element ID
-	        scrollDistance: 300, // Distance from top/bottom before showing element (px)
-	        scrollFrom: 'top', // 'top' or 'bottom'
-	        scrollSpeed: 300, // Speed back to top (ms)
-	        easingType: 'linear', // Scroll to top easing (see http://easings.net/)
-	        animation: 'fade', // Fade, slide, none
-	        animationSpeed: 200, // Animation in speed (ms)
-	        scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
-					//scrollTarget: false, // Set a custom target element for scrolling to the top
-	        scrollText: '<i class="fa fa-angle-up"></i>', // Text for element, can contain HTML
-	        scrollTitle: false, // Set a custom <a> title if required.
-	        scrollImg: false, // Set true to use image
-	        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-	        zIndex: 2147483647 // Z-Index for the overlay
-		});
-	});
-});
+ 	var RGBChange = function() {
+ 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
+ 	};
 
 
+  /*scroll to top*/
+  	$(function () {
+  		$.scrollUp({
+  	        scrollName: 'scrollUp', // Element ID
+  	        scrollDistance: 300, // Distance from top/bottom before showing element (px)
+  	        scrollFrom: 'top', // 'top' or 'bottom'
+  	        scrollSpeed: 300, // Speed back to top (ms)
+  	        easingType: 'linear', // Scroll to top easing (see http://easings.net/)
+  	        animation: 'fade', // Fade, slide, none
+  	        animationSpeed: 200, // Animation in speed (ms)
+  	        scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
+  					//scrollTarget: false, // Set a custom target element for scrolling to the top
+  	        scrollText: '<i class="fa fa-angle-up"></i>', // Text for element, can contain HTML
+  	        scrollTitle: false, // Set a custom <a> title if required.
+  	        scrollImg: false, // Set true to use image
+  	        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+  	        zIndex: 2147483647 // Z-Index for the overlay
+  		});
+  	});
 
-$(document).ready(function(){
 
 	// Change Price with Size
 	$("#selSize").change(function(){
@@ -100,10 +98,7 @@ $(document).ready(function(){
             }
         });
 
-});
 
-
-$().ready(function(){
 	// Validate Register form on keyup and submit
 	$("#registerForm").validate({
 		rules:{
@@ -292,34 +287,79 @@ $().ready(function(){
     	}
     });
 
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+
+
+
+$('.newsletter-btn').click(function(e){
+   e.preventDefault();
+   /*Ajax Request Header setup*/
+   $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+
+  var subscriber_email = $("#subscriber_email").val();
+
+
+   $.ajax({
+      url: "{{ url('check-and-add-subscriber_email')}}",
+      method: 'post',
+      data:{subscriber_email:subscriber_email},
+
+      success: function(resp){
+      if(resp == "exists"){
+      $('#statusSubscribe').show();
+      $("#statusSubscribe").html("<p class='alert alert-danger'>Subscriber email is already exists!</p>").delay(2000).fadeOut('slow');
+      }
+      else {
+        $('#statusSubscribe').show();
+        $("#statusSubscribe").html("<p class='alert alert-success'>Subscriber email is added successfully!</p>").delay(2000).fadeOut('slow');
+      }
+
+      },error:function(){
+        $('#statusSubscribe').show();
+        $("#statusSubscribe").html("<p class='alert alert-info'>Please enter valid email</p>").delay(2000).fadeOut('slow');
+      }
+  });
+   });
+
+
+   // Payment method
+   function selectPaymentMethod(){
+   	if($('#Paypal').is(':checked') || $('#COD').is(':checked')){
+   		/*alert("checked");*/
+   	}else{
+   		alert("Please select Payment Method");
+   		return false;
+   	}
+   }
+
+   function checkPincode(){
+   	var pincode = $("#chkPincode").val();
+   	if(pincode==""){
+   		alert("Please enter Pincode"); return false;
+   	}
+   	$.ajax({
+   		type:'post',
+   		data:{pincode:pincode},
+   		url:'/check-pincode',
+   		success:function(resp){
+   			if(resp>0){
+   				$("#pincodeResponse").html("<font color='green'>This pincode is available for delivery</font>");
+   			}else{
+   				$("#pincodeResponse").html("<font color='red'>This pincode is not available for delivery</font>");
+   			}
+   		},error:function(){
+   			alert("Error");
+   		}
+   	});
+   }
+
+
 });
-
-function selectPaymentMethod(){
-	if($('#Paypal').is(':checked') || $('#COD').is(':checked')){
-		/*alert("checked");*/
-	}else{
-		alert("Please select Payment Method");
-		return false;
-	}
-}
-
-function checkPincode(){
-	var pincode = $("#chkPincode").val();
-	if(pincode==""){
-		alert("Please enter Pincode"); return false;
-	}
-	$.ajax({
-		type:'post',
-		data:{pincode:pincode},
-		url:'/check-pincode',
-		success:function(resp){
-			if(resp>0){
-				$("#pincodeResponse").html("<font color='green'>This pincode is available for delivery</font>");
-			}else{
-				$("#pincodeResponse").html("<font color='red'>This pincode is not available for delivery</font>");
-			}
-		},error:function(){
-			alert("Error");
-		}
-	});
-}

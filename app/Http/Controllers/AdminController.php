@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     public function login(Request $request){
+
     	if($request->isMethod('post')){
     		$data = $request->input();
             $adminCount = Admin::where(['username' => $data['username'],'password'=>md5($data['password']),'status'=>1])->count();
@@ -22,6 +23,7 @@ class AdminController extends Controller
                 return redirect('/admin')->with('flash_message_error','Invalid Username or Password');
         	}
     	}
+
     	return view('admin.admin_login');
     }
 
@@ -206,7 +208,7 @@ class AdminController extends Controller
           if(empty($data['users_access'])){
             $data['users_access'] = 0;
           }
-          
+
           Admin::where('username', $data['username'])->update(['password' => md5($data['password']), 'status' => $data['status'], 'categories_view_access' => $data['categories_view_access'],
           'categories_edit_access' => $data['categories_edit_accesss'],'categories_full_access' => $data['categories_full_accesss'], 'products_access' => $data['products_access'],
           'orders_access' => $data['orders_access'], 'users_access' => $data['users_access'] ]);

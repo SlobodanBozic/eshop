@@ -24,7 +24,7 @@
 * *Username:* testuser@testmail.com
 * *Password:* 123456
 
-## Login data:
+## Login Admin data:
 * *Username:* admin
 * *Password:* 123456
 
